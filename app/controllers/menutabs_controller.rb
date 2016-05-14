@@ -9,7 +9,7 @@ class MenutabsController < ApplicationController
     end
 
     def list
-       @menutab_pages, @menutabs = paginate Menutab, :per_page => 25
+       @menutab_pages, @menutabs = paginate Menutab.order('position ASC'), :per_page => 25
       render :action => "list", :layout => false if request.xhr?
     end
 
